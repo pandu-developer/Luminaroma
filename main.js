@@ -535,5 +535,5 @@ function sendContactMessage() {
   const text = encodeURIComponent(
     `Halo Luminaroma! 👋\n\n*Nama:* ${name}\n*Kontak:* ${contactInfo || "-"}\n*Topik:* ${topic}\n\n*Pesan:*\n${message}`,
   );
-  window.open(`https://wa.me/628xxxxxxxxxx?text=${text}`, "_blank");
+  window.open(`https://wa.me/6285726300988?text=${text}`, "_blank");
 }
