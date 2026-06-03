@@ -1,0 +1,1291 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Luminaroma — Terangi Ruang Damaimu</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- ==================== NAVBAR ==================== -->
+    <nav class="navbar" id="navbar">
+      <div class="nav-brand">Luminaroma</div>
+      <ul class="nav-links">
+        <li><a href="#hero">Beranda</a></li>
+        <li><a href="#shop">Toko</a></li>
+        <li><a href="#story">Tentang Kami</a></li>
+        <li><a href="#founders">Tim Kami</a></li>
+        <li><a href="#contact">Hubungi Kami</a></li>
+      </ul>
+      <div class="nav-right">
+        <button
+          class="nav-cart"
+          id="cartBtn"
+          aria-label="Buka keranjang"
+          onclick="toggleCart()"
+        >
+          <svg
+            width="22"
+            height="22"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+          >
+            <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" />
+            <line x1="3" y1="6" x2="21" y2="6" />
+            <path d="M16 10a4 4 0 01-8 0" />
+          </svg>
+          <span class="cart-badge" id="cartBadge">0</span>
+        </button>
+        <button class="nav-hamburger" id="hamburger" aria-label="Buka menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- ==================== MOBILE MENU ==================== -->
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#hero" onclick="closeMobileMenu()">Beranda</a>
+      <a href="#shop" onclick="closeMobileMenu()">Toko</a>
+      <a href="#story" onclick="closeMobileMenu()">Tentang Kami</a>
+      <a href="#founders" onclick="closeMobileMenu()">Tim Kami</a>
+      <a href="#contact" onclick="closeMobileMenu()">Hubungi Kami</a>
+    </div>
+
+    <!-- ==================== CART DRAWER ==================== -->
+    <div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+    <aside class="cart-drawer" id="cartDrawer">
+      <div class="cart-header">
+        <h3>Keranjang Belanja</h3>
+        <button
+          class="cart-close"
+          onclick="toggleCart()"
+          aria-label="Tutup keranjang"
+        >
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <line x1="18" y1="6" x2="6" y2="18" />
+            <line x1="6" y1="6" x2="18" y2="18" />
+          </svg>
+        </button>
+      </div>
+      <div class="cart-empty" id="cartEmpty">
+        <svg
+          width="52"
+          height="52"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1"
+        >
+          <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" />
+          <line x1="3" y1="6" x2="21" y2="6" />
+          <path d="M16 10a4 4 0 01-8 0" />
+        </svg>
+        <p>Keranjangmu masih kosong.</p>
+        <span>Mulai belanja dan temukan aroma favoritmu!</span>
+      </div>
+      <div class="cart-items" id="cartItems"></div>
+      <div class="cart-footer" id="cartFooter" style="display: none">
+        <div class="cart-subtotal">
+          <span>Subtotal</span>
+          <span id="cartSubtotal">Rp 0</span>
+        </div>
+        <p class="cart-note">Ongkos kirim dihitung saat checkout</p>
+        <button class="btn-primary full-width" onclick="checkout()">
+          Lanjut ke Pembayaran
+        </button>
+        <button class="btn-outline full-width mt-8" onclick="toggleCart()">
+          Lanjut Belanja
+        </button>
+      </div>
+    </aside>
+
+    <!-- ==================== HERO ==================== -->
+    <section class="hero" id="hero">
+      <div class="hero-overlay"></div>
+      <div class="hero-content reveal">
+        <div class="hero-eyebrow">100% Bahan Alami &amp; Berkelanjutan</div>
+        <h1 class="hero-title">Terangi Ruang <em>Damaimu</em></h1>
+        <p class="hero-sub">
+          Dibuat dengan penuh cinta dan bahan-bahan botanikal yang membawa
+          keselarasan, kehangatan, dan ketenangan ke dalam ruanganmu.
+        </p>
+        <div class="hero-actions">
+          <a href="#shop" class="btn-primary">Belanja Sekarang</a>
+          <a href="#story" class="btn-outline">Tentang Kami</a>
+        </div>
+        <div class="hero-trust">
+          <span>⭐ 4.9 dari 2.400+ ulasan</span>
+          <span class="hero-trust-dot"></span>
+          <span>Pengiriman ke seluruh Indonesia</span>
+          <span class="hero-trust-dot"></span>
+          <span>Lilin kedelai alami</span>
+        </div>
+      </div>
+      <div class="hero-products reveal reveal-delay">
+        <img src="img/img_1.png" alt="Lilin 1" class="hero-img hero-img-1" />
+        <img src="img/img_1.png" alt="Lilin 2" class="hero-img hero-img-2" />
+        <img
+          src="img/img_1.png"
+          alt="Reed Diffuser"
+          class="hero-img hero-img-3"
+        />
+      </div>
+    </section>
+
+    <!-- ==================== ABOUT US ==================== -->
+    <section class="about-us" id="story">
+      <div class="about-intro reveal">
+        <span class="about-eyebrow">Tentang Kami</span>
+        <h2>Lahir dari Cinta,<br />Dibuat dengan Niat</h2>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-img-main reveal-left">
+          <img src="img/img_2.png" alt="Dapur Luminaroma" />
+          <div class="about-img-badge">
+            <span class="about-badge-num">2026</span>
+            <span class="about-badge-label">Tahun Berdiri</span>
+          </div>
+        </div>
+
+        <div class="about-story reveal-right">
+          <p class="about-lead">
+            Luminaroma lahir di dapur kecil Bandung, dari seorang perempuan yang
+            percaya bahwa aroma bisa menyembuhkan hari yang paling berat
+            sekalipun.
+          </p>
+          <p class="about-body">
+            Kami bukan pabrik. Setiap lilin dibuat satu per satu, dituang dengan
+            tangan, diberi label dengan hati. Bahan-bahan kami dipilih karena
+            benar-benar baik — untuk tubuhmu, untuk ruanganmu, untuk bumi kita.
+          </p>
+          <p class="about-body">
+            Lima tahun berjalan, ribuan lilin terkirim ke seluruh Indonesia, dan
+            satu hal tidak pernah berubah: niat kami untuk membuat produk yang
+            benar-benar layak hadir di rumahmu.
+          </p>
+          <div class="about-values">
+            <div class="about-value-item">
+              <div class="about-value-icon">🌿</div>
+              <div>
+                <strong>100% Bahan Alami</strong>
+                <p>
+                  Lilin kedelai murni, sumbu kapas, minyak esensial botanikal —
+                  tidak ada kompromi.
+                </p>
+              </div>
+            </div>
+            <div class="about-value-item">
+              <div class="about-value-icon">🤲</div>
+              <div>
+                <strong>Dibuat dengan Tangan</strong>
+                <p>
+                  Setiap produk dituang, dipotong, dan dikemas secara manual
+                  oleh tim kecil kami.
+                </p>
+              </div>
+            </div>
+            <div class="about-value-item">
+              <div class="about-value-icon">📦</div>
+              <div>
+                <strong>Kemasan Ramah Lingkungan</strong>
+                <p>
+                  Kotak daur ulang, tinta berbasis air, tanpa plastik sekali
+                  pakai.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-bottom reveal">
+          <div class="about-img-secondary">
+            <img src="img/img_2.png" alt="Proses Pembuatan" />
+          </div>
+          <div class="about-stats">
+            <div class="about-stat">
+              <span class="about-stat-num">9+</span>
+              <span class="about-stat-label">Varian Aroma</span>
+            </div>
+            <div class="about-stat-divider"></div>
+            <div class="about-stat">
+              <span class="about-stat-num">2.400+</span>
+              <span class="about-stat-label">Pelanggan Puas</span>
+            </div>
+            <div class="about-stat-divider"></div>
+            <div class="about-stat">
+              <span class="about-stat-num">50+</span>
+              <span class="about-stat-label">Jam Bakar per Lilin</span>
+            </div>
+            <div class="about-stat-divider"></div>
+            <div class="about-stat">
+              <span class="about-stat-num">0</span>
+              <span class="about-stat-label">Bahan Sintetis</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SEMUA PRODUK ==================== -->
+    <section class="all-products">
+      <div class="products-main">
+        <h2 class="reveal">Semua Produk</h2>
+        <div class="products-grid">
+          <div class="product-card reveal">
+            <div class="product-img-wrap">
+              <img src="img/img_1.png" alt="Peony Dusk" />
+              <div class="product-badge">Baru</div>
+            </div>
+            <div class="product-info">
+              <h4>Peony Dusk</h4>
+              <p class="product-cat">Seri Floral</p>
+              <div class="product-footer">
+                <div>
+                  <div class="product-price">Rp 39.999</div>
+                  <div class="product-avail">Tersedia</div>
+                </div>
+                <button
+                  class="btn-add"
+                  onclick="addToCart('Peony Dusk', 39999)"
+                >
+                  + Keranjang
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="product-card reveal reveal-delay">
+            <div class="product-img-wrap">
+              <img src="img/img_1.png" alt="English Rose" />
+            </div>
+            <div class="product-info">
+              <h4>English Rose</h4>
+              <p class="product-cat">Seri Floral</p>
+              <div class="product-footer">
+                <div>
+                  <div class="product-price">Rp 42.999</div>
+                  <div class="product-avail">Tersedia</div>
+                </div>
+                <button
+                  class="btn-add"
+                  onclick="addToCart('English Rose', 42999)"
+                >
+                  + Keranjang
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="product-card reveal reveal-delay-2">
+            <div class="product-img-wrap">
+              <img src="img/img_1.png" alt="Mediterranean Fig" />
+            </div>
+            <div class="product-info">
+              <h4>Mediterranean Fig</h4>
+              <p class="product-cat">Seri Woody</p>
+              <div class="product-footer">
+                <div>
+                  <div class="product-price">Rp 44.999</div>
+                  <div class="product-avail">Tersedia</div>
+                </div>
+                <button
+                  class="btn-add"
+                  onclick="addToCart('Mediterranean Fig', 44999)"
+                >
+                  + Keranjang
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="product-card reveal">
+            <div class="product-img-wrap">
+              <img src="img/img_1.png" alt="Cedar & Smoke" />
+            </div>
+            <div class="product-info">
+              <h4>Cedar &amp; Smoke</h4>
+              <p class="product-cat">Seri Woody</p>
+              <div class="product-footer">
+                <div>
+                  <div class="product-price">Rp 46.999</div>
+                  <div class="product-avail">Tersedia</div>
+                </div>
+                <button
+                  class="btn-add"
+                  onclick="addToCart('Cedar & Smoke', 46999)"
+                >
+                  + Keranjang
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="product-card reveal reveal-delay">
+            <div class="product-img-wrap">
+              <img src="img/img_1.png" alt="Vanilla Cloud" />
+              <div class="product-badge bestseller">Terlaris</div>
+            </div>
+            <div class="product-info">
+              <h4>Vanilla Cloud</h4>
+              <p class="product-cat">Seri Sweet</p>
+              <div class="product-footer">
+                <div>
+                  <div class="product-price">Rp 38.999</div>
+                  <div class="product-avail">Tersedia</div>
+                </div>
+                <button
+                  class="btn-add"
+                  onclick="addToCart('Vanilla Cloud', 38999)"
+                >
+                  + Keranjang
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="product-card reveal reveal-delay-2">
+            <div class="product-img-wrap">
+              <img src="img/img_1.png" alt="Bergamot Breeze" />
+            </div>
+            <div class="product-info">
+              <h4>Bergamot Breeze</h4>
+              <p class="product-cat">Seri Fresh</p>
+              <div class="product-footer">
+                <div>
+                  <div class="product-price">Rp 41.999</div>
+                  <div class="product-avail">Tersedia</div>
+                </div>
+                <button
+                  class="btn-add"
+                  onclick="addToCart('Bergamot Breeze', 41999)"
+                >
+                  + Keranjang
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== FOUNDERS ==================== -->
+    <section class="founders" id="founders">
+      <div class="founders-inner">
+        <div class="section-header reveal">
+          <span class="founders-eyebrow">Tim di Balik Luminaroma</span>
+          <h2>Orang-orang yang<br />Menghidupkan Setiap Lilin</h2>
+          <p>
+            Empat sahabat dengan satu visi — membawa kehangatan dan ketenangan
+            ke setiap sudut rumah Indonesia.
+          </p>
+        </div>
+
+        <div class="founders-grid">
+          <!-- Founder 1 -->
+          <div class="founder-card reveal">
+            <div class="founder-img-wrap">
+              <img src="img/img_3.jpeg" alt="Anisa Rahmawati" />
+              <div class="founder-overlay">
+                <p>
+                  "Setiap lilin yang kami buat adalah sepucuk surat cinta —
+                  untuk rumahmu, untuk harimu."
+                </p>
+              </div>
+            </div>
+            <div class="founder-info">
+              <h3>Lazuardi Pandu Dwi Suratno</h3>
+              <span class="founder-role">CEO | Vision &Pitching</span>
+              <p class="founder-bio">
+                Pecinta aroma sejak kecil, Pandu adalah otak di balik setiap
+                formula wewangian Luminaroma. Lulus dari Institut Teknologi
+                Bandung jurusan Kimia, ia mengabdikan keahliannya untuk
+                menciptakan aroma yang menyentuh jiwa.
+              </p>
+              <div class="founder-socials">
+                <a href="#" class="founder-social-link" aria-label="Instagram">
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <rect x="2" y="2" width="20" height="20" rx="5" />
+                    <circle cx="12" cy="12" r="4" />
+                    <circle
+                      cx="17.5"
+                      cy="6.5"
+                      r="1"
+                      fill="currentColor"
+                      stroke="none"
+                    />
+                  </svg>
+                </a>
+                <a href="#" class="founder-social-link" aria-label="LinkedIn">
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path
+                      d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"
+                    />
+                    <rect x="2" y="9" width="4" height="12" />
+                    <circle cx="4" cy="4" r="2" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Founder 2 -->
+          <div class="founder-card reveal reveal-delay">
+            <div class="founder-img-wrap">
+              <img src="img/img_3.jpeg" alt="Bima Santoso" />
+              <div class="founder-overlay">
+                <p>
+                  "Bisnis yang baik dimulai dari produk yang jujur dan hubungan
+                  yang tulus dengan pelanggan."
+                </p>
+              </div>
+            </div>
+            <div class="founder-info">
+              <h3>Ahnaf Ralip Jovian</h3>
+              <span class="founder-role">CMO | Marketing & Branding</span>
+              <p class="founder-bio">
+                Jovian membawa Luminaroma dari dapur ke pasar nasional. Dengan
+                latar belakang bisnis dari Universitas Indonesia, ia membangun
+                fondasi yang membuat brand ini dipercaya ribuan pelanggan.
+              </p>
+              <div class="founder-socials">
+                <a href="#" class="founder-social-link" aria-label="Instagram">
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <rect x="2" y="2" width="20" height="20" rx="5" />
+                    <circle cx="12" cy="12" r="4" />
+                    <circle
+                      cx="17.5"
+                      cy="6.5"
+                      r="1"
+                      fill="currentColor"
+                      stroke="none"
+                    />
+                  </svg>
+                </a>
+                <a href="#" class="founder-social-link" aria-label="LinkedIn">
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path
+                      d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"
+                    />
+                    <rect x="2" y="9" width="4" height="12" />
+                    <circle cx="4" cy="4" r="2" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Founder 3 -->
+          <div class="founder-card reveal reveal-delay-2">
+            <div class="founder-img-wrap">
+              <img src="img/img_3.jpeg" alt="Citra Maharani" />
+              <div class="founder-overlay">
+                <p>
+                  "Desain bukan hanya soal indah — ia tentang bagaimana sebuah
+                  produk membuat orang merasa."
+                </p>
+              </div>
+            </div>
+            <div class="founder-info">
+              <h3>Jinan Laila Ramadhani</h3>
+              <span class="founder-role">COO | Production & Operational</span>
+              <p class="founder-bio">
+                Setiap kemasan, setiap label, setiap sudut visual Luminaroma
+                lahir dari tangan Citra. Alumni Desain Komunikasi Visual
+                Universitas Trisakti, ia percaya bahwa keindahan adalah bagian
+                dari pengalaman.
+              </p>
+              <div class="founder-socials">
+                <a href="#" class="founder-social-link" aria-label="Instagram">
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <rect x="2" y="2" width="20" height="20" rx="5" />
+                    <circle cx="12" cy="12" r="4" />
+                    <circle
+                      cx="17.5"
+                      cy="6.5"
+                      r="1"
+                      fill="currentColor"
+                      stroke="none"
+                    />
+                  </svg>
+                </a>
+                <a href="#" class="founder-social-link" aria-label="LinkedIn">
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path
+                      d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"
+                    />
+                    <rect x="2" y="9" width="4" height="12" />
+                    <circle cx="4" cy="4" r="2" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Founder 4 -->
+          <div class="founder-card reveal reveal-delay-2">
+            <div class="founder-img-wrap">
+              <img src="img/img_3.jpeg" alt="Dani Prasetyo" />
+              <div class="founder-overlay">
+                <p>
+                  "Teknologi yang tepat membuat produk hebat bisa sampai ke
+                  tangan yang tepat, tepat waktu."
+                </p>
+              </div>
+            </div>
+            <div class="founder-info">
+              <h3>Pramitha Widya Natalie</h3>
+              <span class="founder-role">CFO | Finance</span>
+              <p class="founder-bio">
+                Dari gudang hingga pintu rumahmu, Dani memastikan setiap pesanan
+                tiba dengan sempurna. Insinyur lulusan ITS Surabaya ini
+                mengoptimalkan seluruh rantai produksi dan pengiriman
+                Luminaroma.
+              </p>
+              <div class="founder-socials">
+                <a href="#" class="founder-social-link" aria-label="Instagram">
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <rect x="2" y="2" width="20" height="20" rx="5" />
+                    <circle cx="12" cy="12" r="4" />
+                    <circle
+                      cx="17.5"
+                      cy="6.5"
+                      r="1"
+                      fill="currentColor"
+                      stroke="none"
+                    />
+                  </svg>
+                </a>
+                <a href="#" class="founder-social-link" aria-label="LinkedIn">
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path
+                      d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"
+                    />
+                    <rect x="2" y="9" width="4" height="12" />
+                    <circle cx="4" cy="4" r="2" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== HUBUNGI KAMI ==================== -->
+    <section class="contact" id="contact">
+      <div class="contact-inner">
+        <div class="contact-left reveal-left">
+          <span class="contact-eyebrow">Hubungi Kami</span>
+          <h2>Ada yang Ingin<br />Kamu Tanyakan?</h2>
+          <p class="contact-lead">
+            Kami senang mendengar dari kamu — mulai dari pertanyaan produk,
+            pesanan custom, kolaborasi, hingga sekadar berbagi cerita tentang
+            aroma favoritmu.
+          </p>
+
+          <div class="contact-channels">
+            <a
+              href="https://wa.me/628xxxxxxxxxx"
+              class="contact-channel"
+              target="_blank"
+            >
+              <div
+                class="contact-channel-icon"
+                style="background: #e8f7ef; color: #25d366"
+              >
+                <svg
+                  width="22"
+                  height="22"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path
+                    d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"
+                  />
+                </svg>
+              </div>
+              <div>
+                <strong>WhatsApp</strong>
+                <span>Balas dalam hitungan menit</span>
+              </div>
+              <svg
+                class="contact-arrow"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </a>
+
+            <a
+              href="mailto:hello@luminaroma.id"
+              class="contact-channel"
+              target="_blank"
+            >
+              <div
+                class="contact-channel-icon"
+                style="background: #f0f0ff; color: #6366f1"
+              >
+                <svg
+                  width="22"
+                  height="22"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <rect x="2" y="4" width="20" height="16" rx="2" />
+                  <polyline points="22,4 12,13 2,4" />
+                </svg>
+              </div>
+              <div>
+                <strong>Email</strong>
+                <span>hello@luminaroma.id</span>
+              </div>
+              <svg
+                class="contact-arrow"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </a>
+
+            <a
+              href="https://instagram.com/luminaroma"
+              class="contact-channel"
+              target="_blank"
+            >
+              <div
+                class="contact-channel-icon"
+                style="background: #fdf0f8; color: #e1306c"
+              >
+                <svg
+                  width="22"
+                  height="22"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <rect x="2" y="2" width="20" height="20" rx="5" />
+                  <circle cx="12" cy="12" r="4" />
+                  <circle
+                    cx="17.5"
+                    cy="6.5"
+                    r="1.5"
+                    fill="currentColor"
+                    stroke="none"
+                  />
+                </svg>
+              </div>
+              <div>
+                <strong>Instagram</strong>
+                <span>@luminaroma.id</span>
+              </div>
+              <svg
+                class="contact-arrow"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </a>
+
+            <div class="contact-channel no-link">
+              <div
+                class="contact-channel-icon"
+                style="background: #fff7ed; color: #f59e0b"
+              >
+                <svg
+                  width="22"
+                  height="22"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <circle cx="12" cy="12" r="10" />
+                  <polyline points="12 6 12 12 16 14" />
+                </svg>
+              </div>
+              <div>
+                <strong>Jam Operasional</strong>
+                <span>Senin–Sabtu, 08.00–17.00 WIB</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-right reveal-right">
+          <div class="contact-form-wrap">
+            <h3>Kirim Pesan</h3>
+            <p>Isi form di bawah dan kami akan membalas dalam 1×24 jam.</p>
+            <div class="contact-form">
+              <div class="cf-group">
+                <label>Nama Lengkap</label>
+                <input type="text" id="cfName" placeholder="Nama kamu" />
+              </div>
+              <div class="cf-group">
+                <label>Email atau WhatsApp</label>
+                <input
+                  type="text"
+                  id="cfContact"
+                  placeholder="Email atau nomor WA"
+                />
+              </div>
+              <div class="cf-group">
+                <label>Topik</label>
+                <div class="cf-topics">
+                  <button class="cf-topic active" onclick="selectTopic(this)">
+                    Pertanyaan Produk
+                  </button>
+                  <button class="cf-topic" onclick="selectTopic(this)">
+                    Pesanan Custom
+                  </button>
+                  <button class="cf-topic" onclick="selectTopic(this)">
+                    Kolaborasi
+                  </button>
+                  <button class="cf-topic" onclick="selectTopic(this)">
+                    Lainnya
+                  </button>
+                </div>
+              </div>
+              <div class="cf-group">
+                <label>Pesan</label>
+                <textarea
+                  id="cfMessage"
+                  rows="4"
+                  placeholder="Ceritakan apa yang kamu butuhkan…"
+                ></textarea>
+              </div>
+              <button
+                class="btn-primary full-width"
+                onclick="sendContactMessage()"
+              >
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path
+                    d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"
+                  />
+                </svg>
+                Kirim via WhatsApp
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== ULASAN PELANGGAN ==================== -->
+    <section class="reviews" id="reviews">
+      <div class="section-header reveal">
+        <h2>Kata Mereka</h2>
+        <p>Ribuan pelanggan telah merasakan keajaiban aroma Luminaroma.</p>
+      </div>
+
+      <div class="reviews-stats reveal">
+        <div class="stat-item">
+          <div class="stat-number">4.9</div>
+          <div class="star-row">★★★★★</div>
+          <div class="stat-label">Rating Rata-rata</div>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <div class="stat-number">2.400+</div>
+          <div class="stat-label">Ulasan Terverifikasi</div>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <div class="stat-number">98%</div>
+          <div class="stat-label">Pelanggan Puas</div>
+        </div>
+      </div>
+
+      <!-- Slideshow wrapper -->
+      <div class="reviews-slideshow reveal">
+        <button
+          class="rev-btn rev-prev"
+          onclick="reviewMove(-1)"
+          aria-label="Ulasan sebelumnya"
+        >
+          &#8249;
+        </button>
+
+        <div class="reviews-track-wrap">
+          <div class="reviews-track" id="reviewsTrack">
+            <!-- Slide 1 — 3 kartu -->
+            <div class="reviews-slide">
+              <div class="review-card">
+                <div class="review-top">
+                  <div class="reviewer-avatar" style="background: #d4e0c8">
+                    S
+                  </div>
+                  <div class="reviewer-info">
+                    <strong>Sari Dewi</strong><span>Jakarta</span>
+                  </div>
+                  <div class="review-stars">★★★★★</div>
+                </div>
+                <p class="review-product">Vanilla Cloud</p>
+                <p class="review-text">
+                  "Aromanya luar biasa! Setiap kali saya menyalakannya, seluruh
+                  ruangan langsung terasa hangat dan nyaman. Sudah beli tiga
+                  kali dan tidak akan berhenti."
+                </p>
+                <div class="review-date">15 Maret 2025</div>
+              </div>
+              <div class="review-card">
+                <div class="review-top">
+                  <div class="reviewer-avatar" style="background: #e8d5c8">
+                    R
+                  </div>
+                  <div class="reviewer-info">
+                    <strong>Rania Putri</strong><span>Bandung</span>
+                  </div>
+                  <div class="review-stars">★★★★★</div>
+                </div>
+                <p class="review-product">Lavender Dusk</p>
+                <p class="review-text">
+                  "Saya pakai Lavender Dusk sebelum tidur dan kualitas tidur
+                  saya jauh lebih baik. Kemasannya juga sangat elegan, cocok
+                  banget buat hadiah."
+                </p>
+                <div class="review-date">2 April 2025</div>
+              </div>
+              <div class="review-card">
+                <div class="review-top">
+                  <div class="reviewer-avatar" style="background: #c8d0e0">
+                    B
+                  </div>
+                  <div class="reviewer-info">
+                    <strong>Bima Arjuna</strong><span>Surabaya</span>
+                  </div>
+                  <div class="review-stars">★★★★★</div>
+                </div>
+                <p class="review-product">Forest Mist</p>
+                <p class="review-text">
+                  "Sebagai pecinta alam, Forest Mist benar-benar membawa suasana
+                  hutan ke apartemen saya. Daya tahan lilinnya juga sangat lama,
+                  lebih dari 50 jam!"
+                </p>
+                <div class="review-date">28 Maret 2025</div>
+              </div>
+            </div>
+
+            <!-- Slide 2 — 3 kartu -->
+            <div class="reviews-slide">
+              <div class="review-card">
+                <div class="review-top">
+                  <div class="reviewer-avatar" style="background: #e0d4c8">
+                    N
+                  </div>
+                  <div class="reviewer-info">
+                    <strong>Nadia Kusuma</strong><span>Yogyakarta</span>
+                  </div>
+                  <div class="review-stars">★★★★★</div>
+                </div>
+                <p class="review-product">English Rose</p>
+                <p class="review-text">
+                  "Saya pesan buat dekorasi pernikahan dan semua tamu terpesona!
+                  Aromanya tidak menyengat tapi tetap terasa hingga ke sudut
+                  ruangan. Highly recommended!"
+                </p>
+                <div class="review-date">10 April 2025</div>
+              </div>
+              <div class="review-card">
+                <div class="review-top">
+                  <div class="reviewer-avatar" style="background: #d8e0c8">
+                    F
+                  </div>
+                  <div class="reviewer-info">
+                    <strong>Fajar Santoso</strong><span>Bali</span>
+                  </div>
+                  <div class="review-stars">★★★★☆</div>
+                </div>
+                <p class="review-product">Cedar &amp; Smoke</p>
+                <p class="review-text">
+                  "Aroma Cedar & Smoke sangat maskulin dan sophisticated. Cocok
+                  banget untuk ruang kerja. Pengiriman juga cepat dan kemasannya
+                  aman sampai tujuan."
+                </p>
+                <div class="review-date">5 April 2025</div>
+              </div>
+              <div class="review-card">
+                <div class="review-top">
+                  <div class="reviewer-avatar" style="background: #e0c8d8">
+                    A
+                  </div>
+                  <div class="reviewer-info">
+                    <strong>Ayu Maharani</strong><span>Medan</span>
+                  </div>
+                  <div class="review-stars">★★★★★</div>
+                </div>
+                <p class="review-product">Peony Dusk</p>
+                <p class="review-text">
+                  "Peony Dusk adalah lilin terbaik yang pernah saya coba!
+                  Aromanya floral tapi tidak terlalu berat. Sudah jadi ritual
+                  malam saya setiap hari."
+                </p>
+                <div class="review-date">18 April 2025</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <button
+          class="rev-btn rev-next"
+          onclick="reviewMove(1)"
+          aria-label="Ulasan berikutnya"
+        >
+          &#8250;
+        </button>
+      </div>
+
+      <!-- Dots -->
+      <div class="reviews-dots" id="reviewsDots">
+        <button class="rev-dot active" onclick="reviewGoTo(0)"></button>
+        <button class="rev-dot" onclick="reviewGoTo(1)"></button>
+      </div>
+
+      <!-- Progress bar auto-play -->
+      <div class="reviews-progress">
+        <div class="reviews-progress-bar" id="reviewsProgressBar"></div>
+      </div>
+
+      <div class="reviews-cta reveal">
+        <p>
+          Bergabunglah dengan ribuan pelanggan yang telah menemukan aroma
+          istimewa mereka.
+        </p>
+        <a href="#shop" class="btn-primary">Temukan Aromamu</a>
+      </div>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="footer reveal">
+      <div class="footer-brand">Luminaroma</div>
+      <p class="footer-tagline">Terangi Ruang Damaimu</p>
+      <div class="footer-links">
+        <a href="#story">Tentang Kami</a>
+        <a href="#founders">Tim Kami</a>
+        <a href="#contact">Hubungi Kami</a>
+        <a href="#">Kebijakan Privasi</a>
+      </div>
+      <p class="footer-copy">
+        &copy; 2025 Luminaroma. Hak cipta dilindungi. Dibuat dengan 🕯️ di
+        Bandung.
+      </p>
+    </footer>
+
+    <!-- BACK TO TOP -->
+    <button
+      class="back-to-top"
+      id="backToTop"
+      onclick="scrollToTop()"
+      title="Kembali ke atas"
+    >
+      <svg
+        width="20"
+        height="20"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+      >
+        <polyline points="18 15 12 9 6 15" />
+      </svg>
+    </button>
+
+    <!-- Toast Notifikasi -->
+    <div class="toast" id="toast"></div>
+
+    <!-- ==================== MODAL CHECKOUT ==================== -->
+    <div
+      class="checkout-overlay"
+      id="checkoutOverlay"
+      onclick="closeCheckout()"
+    ></div>
+    <div
+      class="checkout-modal"
+      id="checkoutModal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="checkoutTitle"
+    >
+      <!-- Header -->
+      <div class="checkout-modal-header">
+        <div>
+          <h2 id="checkoutTitle">Konfirmasi Pesanan</h2>
+          <p>Lengkapi data diri untuk mengirim pesanan via WhatsApp</p>
+        </div>
+        <button
+          class="checkout-close"
+          onclick="closeCheckout()"
+          aria-label="Tutup"
+        >
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <line x1="18" y1="6" x2="6" y2="18" />
+            <line x1="6" y1="6" x2="18" y2="18" />
+          </svg>
+        </button>
+      </div>
+
+      <div class="checkout-modal-body">
+        <!-- Ringkasan Pesanan -->
+        <div class="checkout-summary">
+          <h4>Ringkasan Pesanan</h4>
+          <div class="checkout-order-list" id="checkoutOrderList"></div>
+          <div class="checkout-total-row">
+            <span>Total</span>
+            <span id="checkoutTotal" class="checkout-total-amount">Rp 0</span>
+          </div>
+        </div>
+
+        <!-- Form Data Diri -->
+        <div class="checkout-form-section">
+          <h4>Data Diri</h4>
+
+          <div class="form-group">
+            <label for="ckName"
+              >Nama Lengkap <span class="required">*</span></label
+            >
+            <input
+              type="text"
+              id="ckName"
+              placeholder="Contoh: Sari Dewi"
+              autocomplete="name"
+            />
+            <span class="field-error" id="errName"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="ckPhone"
+              >Nomor WhatsApp <span class="required">*</span></label
+            >
+            <div class="input-prefix-wrap">
+              <span class="input-prefix">+62</span>
+              <input
+                type="tel"
+                id="ckPhone"
+                placeholder="812-3456-7890"
+                autocomplete="tel"
+              />
+            </div>
+            <span class="field-error" id="errPhone"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="ckAddress"
+              >Alamat Pengiriman <span class="required">*</span></label
+            >
+            <textarea
+              id="ckAddress"
+              rows="3"
+              placeholder="Jl. Melati No. 12, Kelurahan, Kecamatan, Kota, Kode Pos"
+            ></textarea>
+            <span class="field-error" id="errAddress"></span>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="ckCity">Kota <span class="required">*</span></label>
+              <input
+                type="text"
+                id="ckCity"
+                placeholder="Jakarta Selatan"
+                autocomplete="address-level2"
+              />
+              <span class="field-error" id="errCity"></span>
+            </div>
+            <div class="form-group">
+              <label for="ckPostal">Kode Pos</label>
+              <input
+                type="text"
+                id="ckPostal"
+                placeholder="12345"
+                maxlength="5"
+                inputmode="numeric"
+              />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="ckShipping"
+              >Metode Pengiriman <span class="required">*</span></label
+            >
+            <div class="shipping-options" id="shippingOptions">
+              <label class="shipping-option">
+                <input
+                  type="radio"
+                  name="shipping"
+                  value="JNE Reguler (2-3 hari) — Rp 15.000"
+                  checked
+                />
+                <span class="shipping-option-content">
+                  <span class="shipping-name">JNE Reguler</span>
+                  <span class="shipping-detail"
+                    >2–3 hari kerja · Rp 15.000</span
+                  >
+                </span>
+              </label>
+              <label class="shipping-option">
+                <input
+                  type="radio"
+                  name="shipping"
+                  value="JNE YES (1 hari) — Rp 30.000"
+                />
+                <span class="shipping-option-content">
+                  <span class="shipping-name">JNE YES</span>
+                  <span class="shipping-detail">1 hari kerja · Rp 30.000</span>
+                </span>
+              </label>
+              <label class="shipping-option">
+                <input
+                  type="radio"
+                  name="shipping"
+                  value="SiCepat Reguler (2-3 hari) — Rp 12.000"
+                />
+                <span class="shipping-option-content">
+                  <span class="shipping-name">SiCepat Reguler</span>
+                  <span class="shipping-detail"
+                    >2–3 hari kerja · Rp 12.000</span
+                  >
+                </span>
+              </label>
+              <label class="shipping-option">
+                <input
+                  type="radio"
+                  name="shipping"
+                  value="Ambil Sendiri (Pickup) — Gratis"
+                />
+                <span class="shipping-option-content">
+                  <span class="shipping-name">Ambil Sendiri</span>
+                  <span class="shipping-detail">Pickup · Gratis</span>
+                </span>
+              </label>
+            </div>
+            <span class="field-error" id="errShipping"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="ckNote">Catatan Tambahan</label>
+            <textarea
+              id="ckNote"
+              rows="2"
+              placeholder="Contoh: Tolong bungkus sebagai hadiah, warna pita merah..."
+            ></textarea>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer tombol -->
+      <div class="checkout-modal-footer">
+        <button class="btn-outline" onclick="closeCheckout()">Kembali</button>
+        <button class="btn-primary btn-wa" onclick="submitToWhatsApp()">
+          <svg
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            style="flex-shrink: 0"
+          >
+            <path
+              d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"
+            />
+          </svg>
+          Kirim via WhatsApp
+        </button>
+      </div>
+    </div>
+
+    <script src="main.js"></script>
+  </body>
+</html>
